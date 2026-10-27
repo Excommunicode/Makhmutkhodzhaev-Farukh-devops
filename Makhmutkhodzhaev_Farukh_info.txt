@@ -1,0 +1,5 @@
+Name: Farukh
+Surname: Makhmutkhodzhaev
+Group: IT-2 2314
+Student ID: 37093
+Course: DevOps
