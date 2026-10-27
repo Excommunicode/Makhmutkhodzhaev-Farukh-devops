@@ -1,6 +1,12 @@
 # Makhmutkhodzhaev-Farukh-devops
 
+
+# VIDEO
+
+
 DevOps Laboratory Work 1 — Linux, Git, Docker and Jenkins.
+
+
 
 ## Student Information
 
