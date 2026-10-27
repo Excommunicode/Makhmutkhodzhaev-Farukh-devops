@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    image: makhmutkhodzhaev-farukh-devops
+    container_name: makhmutkhodzhaev-farukh-container
+    ports:
+      - "8080:8080"
+    environment:
+      STUDENT_NAME: Farukh
+      STUDENT_SURNAME: Makhmutkhodzhaev
+      STUDENT_GROUP: IT-2 2314
+      STUDENT_ID: "37093"
