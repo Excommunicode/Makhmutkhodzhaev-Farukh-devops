@@ -18,6 +18,12 @@ DevOps Laboratory Work 1 — Linux, Git, Docker and Jenkins.
 | Student ID | 37093                  |
 | Course     | DevOps                 |
 
+## Video Demonstration
+
+<video src="docs/demo-video.mp4" controls width="100%"></video>
+
+Direct link: [docs/demo-video.mp4](docs/demo-video.mp4) (59 MB, 27 min)
+
 ## Project Structure
 
 ```
