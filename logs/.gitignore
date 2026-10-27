@@ -1,0 +1,3 @@
+# Root .gitignore ignores *.log, but this demo log is part of the
+# laboratory work and must stay tracked in the repository.
+!application.log
