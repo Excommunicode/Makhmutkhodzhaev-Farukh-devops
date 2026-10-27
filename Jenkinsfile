@@ -6,8 +6,8 @@ pipeline {
         STUDENT_SURNAME  = 'Makhmutkhodzhaev'
         STUDENT_GROUP    = 'IT-2 2314'
         STUDENT_ID       = '37093'
-        DOCKER_IMAGE     = 'makhmutkhodzhaev-farukh-devops'
-        DOCKER_CONTAINER = 'makhmutkhodzhaev-farukh-container'
+        IMAGE_NAME       = 'makhmutkhodzhaev-farukh-devops'
+        CONTAINER_NAME   = 'makhmutkhodzhaev-farukh-container'
     }
 
     stages {
@@ -41,25 +41,25 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh "docker build -t ${DOCKER_IMAGE} ."
-                sh 'docker images'
+                sh "podman build -t ${IMAGE_NAME} ."
+                sh 'podman images'
             }
         }
 
         stage('Docker Run') {
             steps {
                 sh '''
-                    docker rm -f ${DOCKER_CONTAINER} 2>/dev/null || true
-                    docker run -d -p 8080:8080 \
-                        --name ${DOCKER_CONTAINER} \
+                    podman rm -f ${CONTAINER_NAME} 2>/dev/null || true
+                    podman run -d -p 8080:8080 \
+                        --name ${CONTAINER_NAME} \
                         -e STUDENT_NAME=${STUDENT_NAME} \
                         -e STUDENT_SURNAME=${STUDENT_SURNAME} \
                         -e STUDENT_GROUP="${STUDENT_GROUP}" \
                         -e STUDENT_ID=${STUDENT_ID} \
-                        ${DOCKER_IMAGE}
+                        ${IMAGE_NAME}
                     sleep 2
-                    docker ps
-                    docker logs ${DOCKER_CONTAINER}
+                    podman ps
+                    podman logs ${CONTAINER_NAME}
                 '''
             }
         }

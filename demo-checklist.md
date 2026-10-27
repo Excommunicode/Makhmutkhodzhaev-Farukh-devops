@@ -44,29 +44,34 @@ git branch                      # list branches
 ```
 Branch demo (already done, show result): `development` was created, README committed there, merged into `main`.
 
-## Part C — Docker (run on a machine with Docker)
+## Part C — Containers with Podman (Docker-compatible)
 ```bash
-docker build -t makhmutkhodzhaev-farukh-devops .
-docker images
-docker run --name makhmutkhodzhaev-farukh-container -p 8080:8080 \
+podman --version
+podman machine list                     # VM status (macOS)
+podman build -t makhmutkhodzhaev-farukh-devops .
+podman images
+podman run --name makhmutkhodzhaev-farukh-container -p 8080:8080 \
   -e STUDENT_NAME=Farukh \
   -e STUDENT_SURNAME=Makhmutkhodzhaev \
   -e STUDENT_GROUP="IT-2 2314" \
   -e STUDENT_ID=37093 \
   makhmutkhodzhaev-farukh-devops
-docker ps && docker ps -a
-docker logs makhmutkhodzhaev-farukh-container
-docker exec makhmutkhodzhaev-farukh-container env | grep STUDENT
+podman ps && podman ps -a
+podman logs makhmutkhodzhaev-farukh-container
+podman exec makhmutkhodzhaev-farukh-container env | grep STUDENT
 curl http://localhost:8080
-docker stop makhmutkhodzhaev-farukh-container
-docker start makhmutkhodzhaev-farukh-container
-docker rm -f makhmutkhodzhaev-farukh-container
+podman stop makhmutkhodzhaev-farukh-container
+podman start makhmutkhodzhaev-farukh-container
+podman rm -f makhmutkhodzhaev-farukh-container
 
-docker compose up -d && docker ps && docker compose down
+podman-compose up -d && podman ps && podman-compose down
 ```
+Podman explanation for the video: Podman is a drop-in replacement for Docker,
+it is daemon-less and uses the same image/container format (OCI) and Dockerfile syntax,
+so the same `Dockerfile` is built by both.
 
 ## Part D — Jenkins
 Job name: `Makhmutkhodzhaev_Farukh_DevOps` (pipeline from this Jenkinsfile, GitHub repo as SCM).
 Show: pipeline stages (Checkout → Build → Test → Docker Build → Docker Run),
 Console Output with student info, `Finished: SUCCESS`,
-then `docker images` / `docker ps` on the agent.
+then `podman images` / `podman ps` on the agent (Podman must be installed on the agent).

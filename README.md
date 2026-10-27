@@ -45,8 +45,8 @@ Linux  →  Git  →  GitHub  →  Jenkins  →  Build  →  Test  →  Docker B
 - **Linux** — project is developed on a Linux-like system (files, scripts, permissions, processes).
 - **Git** — tracks every meaningful change (commit history).
 - **GitHub** — remote repository: `https://github.com/Excommunicode/Makhmutkhodzhaev-Farukh-devops`.
-- **Jenkins** — job `Makhmutkhodzhaev_Farukh_DevOps` checks out the code from GitHub, builds, tests, builds the Docker image and runs the container.
-- **Docker** — image `makhmutkhodzhaev-farukh-devops`, container `makhmutkhodzhaev-farukh-container`, port 8080.
+- **Jenkins** — job `Makhmutkhodzhaev_Farukh_DevOps` checks out the code from GitHub, builds, tests, builds the container image and runs the container.
+- **Podman** (Docker-compatible engine, drop-in replacement for Docker) — image `makhmutkhodzhaev-farukh-devops`, container `makhmutkhodzhaev-farukh-container`, port 8080. The `Dockerfile` format is shared by Docker and Podman.
 
 ## Local Usage
 
@@ -56,11 +56,11 @@ Linux  →  Git  →  GitHub  →  Jenkins  →  Build  →  Test  →  Docker B
 bash scripts/Makhmutkhodzhaev_Farukh_system.sh
 ```
 
-### Run the application with Docker
+### Run the application with Podman
 
 ```bash
-docker build -t makhmutkhodzhaev-farukh-devops .
-docker run --name makhmutkhodzhaev-farukh-container -p 8080:8080 \
+podman build -t makhmutkhodzhaev-farukh-devops .
+podman run --name makhmutkhodzhaev-farukh-container -p 8080:8080 \
   -e STUDENT_NAME=Farukh \
   -e STUDENT_SURNAME=Makhmutkhodzhaev \
   -e STUDENT_GROUP="IT-2 2314" \
@@ -70,9 +70,20 @@ docker run --name makhmutkhodzhaev-farukh-container -p 8080:8080 \
 
 Then open `http://localhost:8080`.
 
-### Run with Docker Compose
+Container management:
 
 ```bash
-docker compose up
-docker compose down
+podman ps && podman ps -a
+podman logs makhmutkhodzhaev-farukh-container
+podman exec makhmutkhodzhaev-farukh-container env
+podman stop makhmutkhodzhaev-farukh-container
+podman start makhmutkhodzhaev-farukh-container
+podman rm makhmutkhodzhaev-farukh-container
+```
+
+### Run with Compose
+
+```bash
+podman-compose up
+podman-compose down
 ```
