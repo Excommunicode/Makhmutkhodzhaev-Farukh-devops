@@ -6,3 +6,6 @@ backup/
 
 # Environment files may contain secrets
 .env
+
+# Screen recordings (the demo video lives in docs/ via Git LFS)
+*.mov
