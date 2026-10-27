@@ -14,9 +14,11 @@ DevOps Laboratory Work 1 — Linux, Git, Docker and Jenkins.
 
 ## Video Demonstration
 
-<video src="docs/demo-video.mp4" controls width="100%"></video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WFCt4-rrE1w" title="DevOps Laboratory Work 1 — Video Demonstration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Direct link: [docs/demo-video.mp4](docs/demo-video.mp4) (59 MB, 27 min)
+YouTube: https://www.youtube.com/watch?v=WFCt4-rrE1w
+
+Backup copy (in this repository): [docs/demo-video.mp4](docs/demo-video.mp4)
 
 ## Project Structure
 
